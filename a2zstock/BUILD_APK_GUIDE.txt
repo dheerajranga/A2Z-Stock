@@ -1,0 +1,26 @@
+A2Z Stock Android APK Build Guide
+
+The project includes a GitHub Actions workflow at .github/workflows/build-apk.yml.
+It builds a debug APK with Gradle 8.9 and Android SDK when run on GitHub-hosted runners.
+
+Build using GitHub Actions:
+1. Create a GitHub repository and upload/push all files from this project to the main branch.
+2. Open the repository on GitHub and select the Actions tab.
+3. Select “Build A2Z Stock APK” in the workflow list.
+4. Click “Run workflow” (or push to main to trigger it automatically).
+5. Wait for the workflow to complete successfully.
+6. Open the completed workflow run and download the “A2Z-Stock-APK” artifact.
+7. Extract the downloaded artifact; app-debug.apk is the installable debug APK.
+
+Local build requirements:
+- JDK 17
+- Android SDK Platform 35 and Android build-tools
+- Gradle 8.9
+
+Then run from the project root:
+  gradle assembleDebug
+
+Output path:
+  app/build/outputs/apk/debug/app-debug.apk
+
+Note: This is a debug APK, not a Play Store release-signed APK. The build must complete successfully before installing it.
